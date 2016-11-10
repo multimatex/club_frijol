@@ -1,0 +1,11 @@
+var categorias= [  
+    {  nombre: "Bebidas",  
+        subcategorias: [ "Sin alcohol", "Cocteles", "Jugos" ] }, 
+    {  nombre: "Comidas",
+        subcategorias: [ "Carne", "Pollo", "De mar" ] }, 
+    { "nombre": "Entradas",
+        subcategorias: [  "Ensaladas", "Tapas" ]
+    },
+    { nombre: "Postres", subcategorias: [  "Nacional", "Extranjero" ]},
+    { nombre: "CATEGORIA", subcategorias: [  "Light", "Heavy" ]}
+      ];

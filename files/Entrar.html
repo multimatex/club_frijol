@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+<title>Entrar / El Club del frijol</title>
+<link rel="stylesheet" type="text/css" href="tema.css" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function verificar_campos(formulario)
+{
+	var required_fields = {
+		"usuario_requerido": "Usuario",
+		"contraseña_requerida": "Contraseña"
+	};
+	if (document.all || document.getElementById)
+	{
+		for (var i = 0; i < formulario.length; ++i)
+		{
+			var elem = formulario.elements[i];
+			if (elem.name && required_fields[elem.name] && !elem.value && elem.type && (/^(?:text(?:area)?|password|file)$/i.test(elem.type)))
+			{
+				alert('"' + required_fields[elem.name] + '" es un campo requerido en este formulario.');
+				elem.focus();
+				return false;
+			}
+		}
+	}
+	return true;
+}
+/* ]]> */
+</script>
+</head>
+
+<body onLoad="document.getElementById('login').elements['usuario_requerido'].focus()">
+
+<div id="punlogin" class="pun">
+<div class="top-box"></div>
+<div class="punwrap">
+
+<div id="brdheader" class="block">
+	<div class="box">
+		<div id="brdtitle" class="inbox">
+			<h1><a href="Inicio.html">El Club del frijol</a></h1>
+			<div id="brddesc"></div>
+		</div>
+		<div id="brdmenu" class="inbox">
+			<ul>
+				<li id="navindex"><a href="Inicio.html">Inicio</a></li>
+				<li id="navuserlist"><a href="Usuario.html">Usuarios</a></li>
+				<li id="navregister"><a href="Registrar.html">Registrarse</a></li>
+				<li id="navlogin" class="isactive"><a href="Entrar.html">Entrar</a></li>
+			</ul>
+		</div>
+		<div id="brdwelcome" class="inbox">
+			<p class="conl">No estas registrado.</p>
+			<ul class="conr">
+				<li><span>Temas: <a>Activo</a> | <a>Sin respuesta</a></span></li>
+			</ul>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="brdmain">
+<div class="blockform">
+	<h2><span>Entrar</span></h2>
+	<div class="box">
+		<form id="login" method="post" action="" onSubmit="return verificar_campos(this)">
+			<div class="inform">
+				<fieldset>
+					<legend>Introduzca su nombre de usuario y contraseña abajo</legend>
+					<div class="infldset">
+						<input type="hidden" name="form_sent" value="1" />
+						<input type="hidden" name="redirect_url" value="http://25.111.12.153/foro2/register.php" />
+						<label class="conl required"><strong>Usuario <span>(Requerido)</span></strong><br /><input type="text" name="usuario_requerido" value="" size="25" maxlength="25" tabindex="1" /><br /></label>
+						<label class="conl required"><strong>Contraseña <span>(Requerido)</span></strong><br /><input type="password" name="contraseña_requerida" size="25" tabindex="2" /><br /></label>
+
+
+						<p class="clearb">Si no se ha registrado o ha olvidado su contraseña haga clic en el enlace correspondiente a continuación.</p>
+					</div>
+				</fieldset>
+			</div>
+			<p class="buttons"><input type="submit" name="login" value="Entrar" tabindex="4" /></p>
+		</form>
+	</div>
+</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>a</span></h2>
+	<div class="box">
+		<div id="brdfooternav" class="inbox">
+			<div class="conl">
+				<form id="qjump" method="get" action="viewforum.php">
+					
+				</form>
+			</div>
+
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+<div class="end-box"></div>
+</div>
+
+</body>
+</html>

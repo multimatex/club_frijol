@@ -1,0 +1,248 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+<title>Essentials / Profile / El club del frijol</title>
+<link rel="stylesheet" type="text/css" href="tema.css" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function process_form(the_form)
+{
+	var required_fields = {
+		"req_username": "Username",
+		"req_email": "Email"
+	};
+	if (document.all || document.getElementById)
+	{
+		for (var i = 0; i < the_form.length; ++i)
+		{
+			var elem = the_form.elements[i];
+			if (elem.name && required_fields[elem.name] && !elem.value && elem.type && (/^(?:text(?:area)?|password|file)$/i.test(elem.type)))
+			{
+				alert('"' + required_fields[elem.name] + '" is a required field in this form.');
+				elem.focus();
+				return false;
+			}
+		}
+	}
+	return true;
+}
+/* ]]> */
+</script>
+</head>
+
+<body>
+
+<div id="punprofile" class="pun">
+<div class="top-box"></div>
+<div class="punwrap">
+
+<div id="brdheader" class="block">
+	<div class="box">
+		<div id="brdtitle" class="inbox">
+			<h1><a href="index.php">El club del frijol</a></h1>
+			<div id="brddesc"></div>
+		</div>
+		<div id="brdmenu" class="inbox">
+			<ul>
+				<li id="navindex"><a href="index.php">Index</a></li>
+				<li id="navuserlist"><a href="userlist.php">User list</a></li>
+				<li id="navsearch"><a href="search.php">Search</a></li>
+				<li id="navprofile" class="isactive"><a href="profile.php?id=3">Profile</a></li>
+				<li id="navlogout"><a href="login.php?action=out&amp;id=3&amp;csrf_token=7cc6fe2d130b9dc64900e1da894e5cd2baa0b3b4">Logout</a></li>
+			</ul>
+		</div>
+		<div id="brdwelcome" class="inbox">
+			<ul class="conl">
+				<li><span>Logged in as <strong>Usuario</strong></span></li>
+				<li><span>Last visit: 2016-11-01 09:20:09</span></li>
+			</ul>
+			<ul class="conr">
+				<li><span>Topics: <a href="search.php?action=show_replies" title="Find topics you have posted to.">Posted</a> | <a href="search.php?action=show_new" title="Find topics with new posts since your last visit.">New</a> | <a href="search.php?action=show_recent" title="Find topics with recent posts.">Active</a> | <a href="search.php?action=show_unanswered" title="Find topics with no replies.">Unanswered</a></span></li>
+			</ul>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="brdmain">
+<div id="profile" class="block2col">
+	<div class="blockmenu">
+		<h2><span>Profile menu</span></h2>
+		<div class="box">
+			<div class="inbox">
+				<ul>
+					<li class="isactive"><a href="profile.php?section=essentials&amp;id=3">Essentials</a></li>
+					<li><a href="profile.php?section=personal&amp;id=3">Personal</a></li>
+					<li><a href="profile.php?section=messaging&amp;id=3">Messaging</a></li>
+					<li><a href="profile.php?section=personality&amp;id=3">Personality</a></li>
+					<li><a href="profile.php?section=display&amp;id=3">Display</a></li>
+					<li><a href="profile.php?section=privacy&amp;id=3">Privacy</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="blockform">
+		<h2><span>Usuario - Essentials</span></h2>
+		<div class="box">
+			<form id="profile1" method="post" action="profile.php?section=essentials&amp;id=3" onsubmit="return process_form(this)">
+				<div class="inform">
+					<fieldset>
+						<legend>Enter your username and password</legend>
+						<div class="infldset">
+							<input type="hidden" name="form_sent" value="1" />
+							<p>Username: Usuario</p>
+							<p class="actions"><span><a href="profile.php?action=change_pass&amp;id=3">Change password</a></span></p>
+						</div>
+					</fieldset>
+				</div>
+				<div class="inform">
+					<fieldset>
+						<legend>Enter a valid email address</legend>
+						<div class="infldset">
+							<label class="required"><strong>Email <span>(Required)</span></strong><br /><input type="text" name="req_email" value="" size="40" maxlength="80" /><br /></label>
+						</div>
+					</fieldset>
+				</div>
+                <div class="inform">
+					<fieldset>
+						<legend>Generate Invite Code:</legend>
+						<div class="infldset">
+							<label class="required"><strong>Invite Code <span>(Required)</span></strong><br /><input type="text" name="req_code" id="gen_code_field" value="" size="10" maxlength="10" /><br /></label>
+                            <script>
+							function generate_code(){
+							 var temp = document.getElementById("gen_code_field");
+							 temp.value = "1234";
+							}
+                            </script>
+                             <input type= "button" value="Generate" onclick='generate_code()'></input> 
+						</div>
+					</fieldset>
+				</div>
+				<div class="inform">
+					<fieldset>
+						<legend>Set your localisation options</legend>
+						<div class="infldset">
+							<p>For the forum to display times correctly you must select your local time zone. If Daylight Savings Time is in effect you should also check the option provided which will advance times by 1 hour.</p>
+							<label>Time zone
+							<br /><select name="form[timezone]">
+								<option value="-12">(UTC-12:00) International Date Line West</option>
+								<option value="-11">(UTC-11:00) Niue, Samoa</option>
+								<option value="-10">(UTC-10:00) Hawaii-Aleutian, Cook Island</option>
+								<option value="-9.5">(UTC-09:30) Marquesas Islands</option>
+								<option value="-9">(UTC-09:00) Alaska, Gambier Island</option>
+								<option value="-8.5">(UTC-08:30) Pitcairn Islands</option>
+								<option value="-8">(UTC-08:00) Pacific</option>
+								<option value="-7">(UTC-07:00) Mountain</option>
+								<option value="-6">(UTC-06:00) Central</option>
+								<option value="-5">(UTC-05:00) Eastern</option>
+								<option value="-4">(UTC-04:00) Atlantic</option>
+								<option value="-3.5">(UTC-03:30) Newfoundland</option>
+								<option value="-3">(UTC-03:00) Amazon, Central Greenland</option>
+								<option value="-2">(UTC-02:00) Mid-Atlantic</option>
+								<option value="-1">(UTC-01:00) Azores, Cape Verde, Eastern Greenland</option>
+								<option value="0" selected="selected">(UTC) Western European, Greenwich</option>
+								<option value="1">(UTC+01:00) Central European, West African</option>
+								<option value="2">(UTC+02:00) Eastern European, Central African</option>
+								<option value="3">(UTC+03:00) Eastern African</option>
+								<option value="3.5">(UTC+03:30) Iran</option>
+								<option value="4">(UTC+04:00) Moscow, Gulf, Samara</option>
+								<option value="4.5">(UTC+04:30) Afghanistan</option>
+								<option value="5">(UTC+05:00) Pakistan</option>
+								<option value="5.5">(UTC+05:30) India, Sri Lanka</option>
+								<option value="5.75">(UTC+05:45) Nepal</option>
+								<option value="6">(UTC+06:00) Bangladesh, Bhutan, Yekaterinburg</option>
+								<option value="6.5">(UTC+06:30) Cocos Islands, Myanmar</option>
+								<option value="7">(UTC+07:00) Indochina, Novosibirsk</option>
+								<option value="8">(UTC+08:00) Greater China, Australian Western, Krasnoyarsk</option>
+								<option value="8.75">(UTC+08:45) Southeastern Western Australia</option>
+								<option value="9">(UTC+09:00) Japan, Korea, Chita, Irkutsk</option>
+								<option value="9.5">(UTC+09:30) Australian Central</option>
+								<option value="10">(UTC+10:00) Australian Eastern</option>
+								<option value="10.5">(UTC+10:30) Lord Howe</option>
+								<option value="11">(UTC+11:00) Solomon Island, Vladivostok</option>
+								<option value="11.5">(UTC+11:30) Norfolk Island</option>
+								<option value="12">(UTC+12:00) New Zealand, Fiji, Magadan</option>
+								<option value="12.75">(UTC+12:45) Chatham Islands</option>
+								<option value="13">(UTC+13:00) Tonga, Phoenix Islands, Kamchatka</option>
+								<option value="14">(UTC+14:00) Line Islands</option>
+							</select>
+							<br /></label>
+							<div class="rbox">
+								<label><input type="checkbox" name="form[dst]" value="1" checked="checked" />Daylight Savings Time is in effect (advance time by 1 hour).<br /></label>
+							</div>
+							<label>Time format
+							<br /><select name="form[time_format]">
+								<option value="0" selected="selected">07:51:33 (Default)</option>
+								<option value="2">07:51</option>
+								<option value="3">7:51:33 am</option>
+								<option value="4">7:51 am</option>
+							</select>
+							<br /></label>
+							<label>Date format
+							<br /><select name="form[date_format]">
+								<option value="0" selected="selected">2016-11-03 (Default)</option>
+								<option value="2">2016-03-11</option>
+								<option value="3">03-11-2016</option>
+								<option value="4">11-03-2016</option>
+								<option value="5">Nov 3 2016</option>
+								<option value="6">3rd Nov 2016</option>
+							</select>
+							<br /></label>
+
+						</div>
+					</fieldset>
+				</div>
+				<div class="inform">
+					<fieldset>
+						<legend>User activity</legend>
+						<div class="infldset">
+							<p>Registered: 2016-11-01</p>
+							<p>Last post: Never</p>
+							<p>Last visit: 2016-11-01 09:20:09</p>
+							<p class="actions">Posts: 0 - <a href="search.php?action=show_user_topics&amp;user_id=3">Show all topics</a> - <a href="search.php?action=show_user_posts&amp;user_id=3">Show all posts</a> - <a href="search.php?action=show_subscriptions&amp;user_id=3">Show all subscriptions</a></p>
+						</div>
+					</fieldset>
+				</div>
+				<p class="buttons"><input type="submit" name="update" value="Submit" /> When you update your profile, you will be redirected back to this page.</p>
+			</form>
+		</div>
+	</div>
+	<div class="clearer"></div>
+</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>Board footer</span></h2>
+	<div class="box">
+		<div id="brdfooternav" class="inbox">
+			<div class="conl">
+				<form id="qjump" method="get" action="viewforum.php">
+					<div><label><span>Jump to<br /></span>
+					<select name="id" onchange="window.location=('viewforum.php?id='+this.options[this.selectedIndex].value)">
+						<optgroup label="Test category">
+							<option value="1">Test forum</option>
+						</optgroup>
+					</select></label>
+					<input type="submit" value=" Go " accesskey="g" />
+					</div>
+				</form>
+			</div>
+			<div class="conr">
+				
+			</div>
+			<div class="clearer"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+<div class="end-box"></div>
+</div>
+
+</body>
+</html>
