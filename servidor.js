@@ -41,7 +41,7 @@ function GuardarProducto(req,res)
 		function recibir(data)
 		{
 			
-			console.log("estoy ejecutando el evento");
+			console.log("estoy holi");
 
 			console.log(data.toString());
 
